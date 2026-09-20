@@ -1,0 +1,1601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Grade 6 / Cambridge Global English Stage 6-informed ESL diagnostic.">
+  <title>Moonshot | Grade 6 ESL Diagnostic</title>
+  <style>
+    :root {
+      --space: #101a45;
+      --space-deep: #08102f;
+      --ink: #211a2a;
+      --paper: #fff1c8;
+      --paper-light: #fff8e7;
+      --moon: #f4d46a;
+      --moon-shadow: #dfb94e;
+      --rocket-red: #d94038;
+      --rocket-red-dark: #a52e32;
+      --turquoise: #37c8c4;
+      --turquoise-dark: #168c9a;
+      --orange: #f47a24;
+      --purple: #5c438a;
+      --purple-light: #8365b8;
+      --success: #3d8d63;
+      --warning: #db8d28;
+      --danger: #c54245;
+      --shadow: 7px 7px 0 var(--ink);
+      --outline: 3px solid var(--ink);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--space-deep); }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 14%, rgba(55, 200, 196, .2) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 28%, rgba(255, 241, 200, .46) 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 74%, rgba(244, 122, 36, .23) 0 2px, transparent 3px),
+        linear-gradient(145deg, #17255b 0%, var(--space) 45%, var(--space-deep) 100%);
+      font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      touch-action: manipulation;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      opacity: .19;
+      background-image:
+        repeating-radial-gradient(circle at 25% 40%, rgba(255,255,255,.22) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(125deg, transparent 0 5px, rgba(255,255,255,.035) 6px 7px);
+      background-size: 17px 19px, 8px 8px;
+      mix-blend-mode: soft-light;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 4px solid var(--turquoise);
+      outline-offset: 3px;
+    }
+
+    .hidden { display: none !important; }
+
+    .space-illustration {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .space-illustration svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-width: 980px;
+    }
+
+    .command-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px clamp(16px, 4vw, 48px);
+      color: var(--paper);
+      border-bottom: var(--outline);
+      background:
+        linear-gradient(90deg, rgba(33,26,42,.96), rgba(54,37,100,.97) 52%, rgba(33,26,42,.96)),
+        var(--space);
+      box-shadow: 0 5px 0 rgba(8,16,47,.78);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      gap: 12px;
+    }
+
+    .rocket-badge {
+      display: grid;
+      width: 55px;
+      height: 55px;
+      flex: 0 0 55px;
+      place-items: center;
+      overflow: hidden;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--rocket-red);
+      box-shadow: 3px 3px 0 var(--ink);
+      transform: rotate(-8deg);
+    }
+
+    .rocket-badge svg { width: 45px; height: 45px; }
+
+    .eyebrow {
+      display: block;
+      margin: 0 0 2px;
+      color: var(--moon);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 1px;
+      color: var(--paper);
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: .035em;
+      line-height: .95;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0 var(--rocket-red);
+    }
+
+    .subhead {
+      margin: 0;
+      color: #d4e8de;
+      font-size: clamp(.74rem, 1.4vw, .92rem);
+      font-weight: 700;
+    }
+
+    .tr-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 47px;
+      gap: 8px;
+      padding: 8px 13px;
+      color: var(--paper);
+      font-size: .83rem;
+      font-weight: 900;
+      white-space: nowrap;
+      border: 2px solid var(--paper);
+      border-radius: 999px;
+      background: rgba(8,16,47,.58);
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform .14s ease, background-color .14s ease;
+    }
+
+    .tr-toggle:hover { background: var(--rocket-red); }
+    .tr-toggle:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+    .tr-toggle.is-on { color: var(--ink); background: var(--moon); }
+
+    .signal-dot {
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: #8b91a9;
+    }
+
+    .tr-toggle.is-on .signal-dot { background: var(--turquoise); }
+
+    .mission-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 27px 0 108px;
+    }
+
+    .progress-nav {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stage-nav {
+      min-height: 61px;
+      padding: 8px 10px;
+      color: var(--paper);
+      font-size: clamp(.73rem, 1.4vw, .97rem);
+      font-weight: 900;
+      line-height: 1.05;
+      border: 3px solid var(--ink);
+      border-radius: 17px 17px 8px 17px;
+      background: rgba(17, 26, 69, .94);
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform .14s ease, background .14s ease;
+    }
+
+    .stage-nav:hover { background: var(--purple); }
+    .stage-nav:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+    .stage-nav.is-active { color: var(--ink); background: var(--moon); }
+
+    .stage-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 590px;
+      padding: clamp(22px, 4vw, 42px);
+      border: 4px solid var(--ink);
+      border-radius: 31px 31px 13px 31px;
+      background:
+        radial-gradient(circle at 93% 7%, rgba(55,200,196,.21) 0 75px, transparent 76px),
+        radial-gradient(circle at 7% 96%, rgba(244,122,36,.16) 0 90px, transparent 91px),
+        var(--paper);
+      box-shadow: 10px 10px 0 rgba(8,16,47,.86);
+    }
+
+    .stage-panel::after {
+      position: absolute;
+      right: -29px;
+      bottom: -38px;
+      width: 165px;
+      height: 165px;
+      content: "";
+      opacity: .65;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at 38% 36%, var(--moon-shadow) 0 14px, transparent 15px),
+        radial-gradient(ellipse at 65% 66%, var(--moon-shadow) 0 20px, transparent 21px),
+        radial-gradient(ellipse at 72% 28%, var(--moon-shadow) 0 8px, transparent 9px),
+        var(--moon);
+      transform: rotate(-18deg);
+    }
+
+    .stage-panel > * { position: relative; z-index: 1; }
+
+    .stage-intro {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 17px;
+      margin-bottom: 24px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .stage-kicker {
+      display: inline-block;
+      margin-bottom: 6px;
+      padding: 4px 9px;
+      color: var(--paper);
+      font-size: .69rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--purple);
+    }
+
+    .stage-intro h2 {
+      margin-bottom: 6px;
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: .96;
+      letter-spacing: .025em;
+      text-transform: uppercase;
+    }
+
+    .stage-intro p {
+      max-width: 720px;
+      margin-bottom: 0;
+      font-size: clamp(.92rem, 1.7vw, 1.06rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .chapter-number {
+      display: grid;
+      width: 68px;
+      height: 68px;
+      flex: 0 0 68px;
+      place-items: center;
+      color: var(--paper);
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: 2.6rem;
+      line-height: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50% 50% 9px 50%;
+      background: var(--rocket-red);
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: rotate(7deg);
+    }
+
+    .two-up {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .85fr);
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .panel-card {
+      padding: clamp(18px, 3vw, 29px);
+      border: var(--outline);
+      border-radius: 23px 23px 8px 23px;
+      background: var(--paper-light);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .panel-card h3 {
+      margin-bottom: 10px;
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(1.23rem, 2.4vw, 1.8rem);
+      letter-spacing: .025em;
+      text-transform: uppercase;
+    }
+
+    .panel-card p { font-size: 1rem; font-weight: 700; line-height: 1.52; }
+
+    .callout {
+      position: relative;
+      padding: 21px 23px;
+      color: var(--paper);
+      border: var(--outline);
+      border-radius: 19px 19px 6px 19px;
+      background: var(--space);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .callout::before {
+      position: absolute;
+      top: -12px;
+      left: 22px;
+      width: 25px;
+      height: 25px;
+      content: "";
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--turquoise);
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: clamp(1.1rem, 2.2vw, 1.42rem);
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .language-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .language-chip {
+      padding: 7px 10px;
+      color: var(--ink);
+      font-size: .83rem;
+      font-weight: 900;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--turquoise);
+      transform: rotate(-1deg);
+    }
+
+    .language-chip:nth-child(even) { background: var(--moon); transform: rotate(1deg); }
+    .language-chip:nth-child(3n) { color: var(--paper); background: var(--rocket-red); }
+
+    .tr-hint {
+      margin-top: 15px;
+      padding: 10px 12px;
+      color: var(--ink);
+      font-size: .88rem;
+      font-weight: 800;
+      line-height: 1.42;
+      border: 2px dashed var(--ink);
+      border-radius: 12px;
+      background: rgba(244, 212, 106, .55);
+    }
+
+    .mission-list {
+      padding: 0;
+      margin: 16px 0 0;
+      list-style: none;
+    }
+
+    .mission-list li {
+      position: relative;
+      padding: 10px 0 10px 32px;
+      font-weight: 800;
+      line-height: 1.35;
+      border-bottom: 2px dashed rgba(33,26,42,.34);
+    }
+
+    .mission-list li::before {
+      position: absolute;
+      left: 1px;
+      top: 9px;
+      display: grid;
+      width: 20px;
+      height: 20px;
+      place-items: center;
+      content: "★";
+      color: var(--paper);
+      font-size: .73rem;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--rocket-red);
+    }
+
+    .tracker-card {
+      display: grid;
+      align-content: center;
+      min-height: 210px;
+      text-align: center;
+      border: var(--outline);
+      border-radius: 23px 23px 8px 23px;
+      background:
+        linear-gradient(140deg, rgba(55,200,196,.22), transparent 55%),
+        var(--purple);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .tracker-label {
+      color: var(--paper);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .tracker-number {
+      display: block;
+      margin: 4px 0;
+      color: var(--moon);
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: 5rem;
+      line-height: .9;
+      text-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .tracker-card small {
+      padding: 0 14px;
+      color: var(--paper);
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .turn-controls {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .icon-control {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      color: var(--paper);
+      font-size: 2rem;
+      font-weight: 900;
+      border: 3px solid var(--ink);
+      border-radius: 50% 50% 11px 50%;
+      background: var(--rocket-red);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .icon-control:nth-child(1) { color: var(--ink); background: var(--moon); }
+    .icon-control:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--ink); }
+
+    .stage-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .retro-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      padding: 12px 20px;
+      color: var(--paper);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+      border: 3px solid var(--ink);
+      border-radius: 17px 17px 7px 17px;
+      background: var(--rocket-red);
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .retro-button:hover { background: var(--rocket-red-dark); }
+    .retro-button:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--ink); }
+    .retro-button.secondary { color: var(--ink); background: var(--moon); }
+    .retro-button.secondary:hover { background: #ffe48b; }
+    .retro-button.success { color: var(--ink); background: var(--turquoise); }
+    .retro-button.success:hover { background: #70dfd7; }
+    .retro-button.danger { background: var(--danger); }
+
+    .score-badge {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      gap: 6px;
+      padding: 10px 13px;
+      color: var(--paper);
+      font-size: .83rem;
+      font-weight: 900;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--space);
+      box-shadow: 3px 3px 0 var(--ink);
+      white-space: nowrap;
+    }
+
+    .score-badge strong { color: var(--moon); font-size: 1.25rem; }
+
+    .matcher-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 4px 0 0;
+    }
+
+    .match-column {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      padding: 15px;
+      border: 3px solid var(--ink);
+      border-radius: 20px 20px 7px 20px;
+      background: rgba(255,248,231,.68);
+    }
+
+    .column-label {
+      margin: 0 0 2px;
+      color: var(--purple);
+      font-size: .73rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .match-card {
+      min-height: 70px;
+      padding: 13px 15px;
+      color: var(--ink);
+      text-align: left;
+      border: 3px solid var(--ink);
+      border-radius: 16px 16px 6px 16px;
+      background: var(--paper-light);
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform .13s ease, box-shadow .13s ease, background .13s ease;
+    }
+
+    .match-card:hover:not(:disabled) { background: #fff9e9; transform: translate(-1px,-1px); }
+    .match-card:active:not(:disabled) { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+    .match-card .card-main { display: block; font-size: .97rem; font-weight: 900; line-height: 1.28; }
+    .match-card .tr-hint { margin-top: 7px; padding: 5px 7px; font-size: .73rem; }
+    .source-card { background: #fff5d7; }
+    .target-card { color: var(--paper); background: var(--space); }
+    .target-card:hover:not(:disabled) { background: #243371; }
+    .target-card .tr-hint { color: var(--ink); background: rgba(244,212,106,.9); }
+    .match-card.is-selected { color: var(--paper); background: var(--purple); transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+    .match-card.is-matched { color: var(--ink); background: var(--turquoise); }
+    .match-card.is-incorrect { background: #f3aba3; animation: cartoon-shake .42s ease-in-out; }
+    .match-card:disabled { cursor: default; opacity: .78; }
+
+    .reading-text {
+      padding: clamp(19px, 3vw, 29px);
+      color: var(--paper);
+      border: 4px solid var(--ink);
+      border-radius: 25px 25px 8px 25px;
+      background:
+        radial-gradient(circle at 93% 14%, rgba(55,200,196,.38) 0 28px, transparent 29px),
+        var(--space);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .reading-text p {
+      max-width: 970px;
+      margin-bottom: 0;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      font-weight: 700;
+      line-height: 1.66;
+    }
+
+    .reading-text strong {
+      color: var(--moon);
+      text-decoration: underline;
+      text-decoration-color: var(--turquoise);
+      text-decoration-thickness: 3px;
+    }
+
+    .reading-text .tr-hint { color: var(--ink); background: var(--paper); }
+
+    .question-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 27px 0 11px;
+    }
+
+    .question-head h3 {
+      margin: 0;
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .question-progress {
+      padding: 7px 10px;
+      color: var(--paper);
+      font-size: .78rem;
+      font-weight: 900;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--purple);
+      white-space: nowrap;
+    }
+
+    .questions {
+      display: grid;
+      gap: 13px;
+    }
+
+    .question-card {
+      padding: 16px;
+      border: 3px solid var(--ink);
+      border-radius: 19px 19px 7px 19px;
+      background: rgba(255,248,231,.86);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .question-card h4 {
+      margin: 0 0 12px;
+      font-size: clamp(.95rem, 1.8vw, 1.1rem);
+      line-height: 1.38;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .answer-option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 61px;
+      padding: 10px 11px;
+      color: var(--ink);
+      font-size: .86rem;
+      font-weight: 900;
+      line-height: 1.22;
+      text-align: center;
+      border: 3px solid var(--ink);
+      border-radius: 13px 13px 5px 13px;
+      background: var(--paper-light);
+      box-shadow: 2px 2px 0 var(--ink);
+      transition: transform .13s ease, background .13s ease, box-shadow .13s ease;
+    }
+
+    .answer-option:hover:not(:disabled) { background: var(--moon); transform: translate(-1px,-1px); }
+    .answer-option:active:not(:disabled) { transform: translate(2px,2px); box-shadow: 0 0 0 var(--ink); }
+    .answer-option.is-correct { color: var(--ink); background: var(--turquoise); animation: cartoon-pop .36s ease-in-out; }
+    .answer-option.is-incorrect { color: var(--paper); background: var(--danger); animation: cartoon-shake .42s ease-in-out; }
+    .answer-option.is-disabled { cursor: default; opacity: .52; }
+
+    .writing-brief {
+      margin-top: 25px;
+      padding: clamp(19px, 3vw, 27px);
+      border: 4px solid var(--ink);
+      border-radius: 25px 25px 8px 25px;
+      background:
+        linear-gradient(125deg, rgba(244,122,36,.16), transparent 45%),
+        var(--turquoise);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .writing-brief h3 {
+      margin-bottom: 7px;
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: .025em;
+      text-transform: uppercase;
+    }
+
+    .writing-brief p { margin-bottom: 11px; font-weight: 800; line-height: 1.5; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 15px;
+      margin: 14px 0;
+    }
+
+    .checklist span {
+      display: block;
+      padding: 8px 10px 8px 29px;
+      font-size: .86rem;
+      font-weight: 900;
+      line-height: 1.3;
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      background: rgba(255,248,231,.68);
+    }
+
+    .checklist span::before {
+      content: "□";
+      display: inline-block;
+      width: 18px;
+      margin-left: -21px;
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+
+    .mission-draft {
+      width: 100%;
+      min-height: 132px;
+      padding: 14px;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      resize: vertical;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--paper-light);
+      box-shadow: inset 2px 2px 0 rgba(33,26,42,.15);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .metric {
+      min-height: 140px;
+      padding: 17px 12px;
+      text-align: center;
+      border: 3px solid var(--ink);
+      border-radius: 19px 19px 7px 19px;
+      background: var(--paper-light);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .metric:nth-child(2) { background: var(--moon); }
+    .metric:nth-child(3) { background: var(--turquoise); }
+    .metric:nth-child(4) { color: var(--paper); background: var(--purple); }
+    .metric-label {
+      display: block;
+      min-height: 32px;
+      font-size: .69rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      display: block;
+      margin: 8px 0 4px;
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: .95;
+    }
+
+    .metric small { display: block; font-size: .75rem; font-weight: 800; line-height: 1.25; }
+
+    .teacher-log {
+      margin-top: 25px;
+      padding: clamp(19px, 3vw, 28px);
+      border: 4px solid var(--ink);
+      border-radius: 25px 25px 8px 25px;
+      background: var(--space);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .teacher-log h3 {
+      margin-bottom: 5px;
+      color: var(--paper);
+      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      font-size: clamp(1.35rem, 3vw, 1.95rem);
+      letter-spacing: .025em;
+      text-transform: uppercase;
+    }
+
+    .teacher-log > p { color: #dce9e1; font-size: .91rem; font-weight: 700; line-height: 1.45; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr)) auto;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .form-control {
+      min-width: 0;
+      min-height: 56px;
+      padding: 9px 11px;
+      color: var(--ink);
+      font-size: .82rem;
+      font-weight: 800;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--paper-light);
+    }
+
+    .form-control::placeholder { color: #655d64; }
+
+    .log-button {
+      min-width: 112px;
+      min-height: 56px;
+      padding: 10px 13px;
+      color: var(--ink);
+      font-size: .86rem;
+      font-weight: 900;
+      border: 3px solid var(--ink);
+      border-radius: 13px 13px 5px 13px;
+      background: var(--moon);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .log-button:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+
+    .observation-list {
+      display: grid;
+      gap: 8px;
+      max-height: 310px;
+      margin-top: 16px;
+      overflow: auto;
+    }
+
+    .empty-log {
+      margin: 0;
+      padding: 16px;
+      color: #c8d6db;
+      font-size: .88rem;
+      font-weight: 700;
+      font-style: italic;
+      text-align: center;
+      border: 2px dashed #8ba1b0;
+      border-radius: 12px;
+    }
+
+    .student-record {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px;
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      border-radius: 13px;
+      background: var(--paper-light);
+    }
+
+    .student-name {
+      min-width: 102px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .record-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .record-tag {
+      padding: 5px 7px;
+      font-size: .72rem;
+      font-weight: 900;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--moon);
+    }
+
+    .record-tag:nth-child(2) { background: var(--turquoise); }
+    .record-tag:nth-child(3) { color: var(--paper); background: var(--purple); }
+
+    .dashboard-note {
+      margin: 0;
+      color: var(--paper);
+      font-size: .79rem;
+      font-weight: 800;
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    .app-footer {
+      position: relative;
+      z-index: 1;
+      padding: 18px 16px 27px;
+      color: #d4e8de;
+      font-size: .77rem;
+      font-weight: 700;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .status-message {
+      min-height: 22px;
+      margin: 10px 0 0;
+      color: var(--purple);
+      font-size: .84rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    @keyframes cartoon-shake {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      25% { transform: translateX(-5px) rotate(-1deg); }
+      75% { transform: translateX(5px) rotate(1deg); }
+    }
+
+    @keyframes cartoon-pop {
+      0% { transform: scale(1); }
+      45% { transform: scale(1.055) rotate(-1deg); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 870px) {
+      .two-up { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .log-button { grid-column: span 2; }
+    }
+
+    @media (max-width: 650px) {
+      .command-header { align-items: flex-start; gap: 10px; }
+      .rocket-badge { width: 47px; height: 47px; flex-basis: 47px; }
+      .rocket-badge svg { width: 39px; height: 39px; }
+      .tr-toggle { min-height: 43px; padding: 7px 9px; }
+      .tr-toggle .toggle-word { display: none; }
+      .mission-shell { width: min(100% - 20px, 1180px); padding-top: 17px; }
+      .progress-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+      .stage-nav { min-height: 56px; }
+      .stage-panel { min-height: 0; padding: 20px 16px 25px; border-radius: 23px 23px 8px 23px; }
+      .stage-intro { gap: 11px; margin-bottom: 18px; }
+      .chapter-number { width: 53px; height: 53px; flex-basis: 53px; font-size: 2.1rem; }
+      .matcher-grid, .option-grid, .checklist { grid-template-columns: 1fr; }
+      .match-column { padding: 11px; }
+      .stage-footer { align-items: stretch; flex-direction: column; }
+      .stage-footer .retro-button { width: 100%; }
+      .question-head { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .student-record { align-items: flex-start; flex-direction: column; }
+      .record-tags { justify-content: flex-start; }
+      .form-grid { grid-template-columns: 1fr; }
+      .log-button { grid-column: auto; }
+      .dashboard-note { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="space-illustration" aria-hidden="true">
+    <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="gouache">
+          <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="6" result="noise"/>
+          <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+          <feComponentTransfer in="mono" result="softNoise"><feFuncA type="table" tableValues="0 .13"/></feComponentTransfer>
+          <feBlend in="SourceGraphic" in2="softNoise" mode="multiply"/>
+        </filter>
+      </defs>
+      <g fill="#fff1c8" stroke="#211a2a" stroke-width="4" stroke-linejoin="round">
+        <path d="M112 170l11 28 29 11-29 11-11 29-12-29-28-11 28-11z"/>
+        <path d="M480 80l8 20 21 8-21 8-8 22-8-22-21-8 21-8z"/>
+        <path d="M1018 190l10 25 25 10-25 10-10 26-10-26-26-10 26-10z"/>
+        <path d="M1400 95l7 18 19 7-19 8-7 19-7-19-19-8 19-7z"/>
+        <path d="M1320 410l8 20 21 8-21 8-8 22-8-22-21-8 21-8z"/>
+        <circle cx="310" cy="310" r="6"/>
+        <circle cx="672" cy="152" r="5"/>
+        <circle cx="1170" cy="82" r="5"/>
+        <circle cx="1470" cy="286" r="6"/>
+      </g>
+      <g transform="translate(1180 54) rotate(-13)" filter="url(#gouache)">
+        <ellipse cx="163" cy="135" rx="162" ry="46" fill="none" stroke="#f47a24" stroke-width="24"/>
+        <circle cx="163" cy="135" r="110" fill="#37c8c4" stroke="#211a2a" stroke-width="8"/>
+        <path d="M87 67c37-33 92-41 137-15-37-9-83 1-117 31-15 13-26 30-33 50-5-25 0-48 13-66z" fill="#85e7df" opacity=".72"/>
+        <path d="M86 221c23 20 54 31 89 31 54 0 100-29 124-72-36 31-90 41-142 22-30-10-53-30-71-55z" fill="#168c9a" opacity=".7"/>
+      </g>
+      <g transform="translate(135 500) rotate(-14)" filter="url(#gouache)">
+        <path d="M128 138L35 256l83-10 21 69 62-120z" fill="#d94038" stroke="#211a2a" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M227 116l70 93 10-82 68 2-97-86z" fill="#d94038" stroke="#211a2a" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M128 138C185 41 301 4 389 42c28 12 57 37 81 73l-80 135c-85 16-172-15-262-112z" fill="#fff1c8" stroke="#211a2a" stroke-width="8"/>
+        <path d="M146 143c44-69 130-104 207-83-36 15-66 41-90 78-25 39-34 75-37 105-29-22-55-53-80-100z" fill="#f6fbeb"/>
+        <path d="M333 61c37 8 71 31 100 66l-33 55c-12-43-41-77-83-99z" fill="#d94038" stroke="#211a2a" stroke-width="5"/>
+        <ellipse cx="285" cy="105" rx="49" ry="43" fill="#37c8c4" stroke="#211a2a" stroke-width="7"/>
+        <path d="M252 96c12-21 41-30 62-20-18 1-36 12-47 29-7 10-10 21-11 32-11-10-15-24-4-41z" fill="#a8f4ed" opacity=".9"/>
+        <path d="M393 224l61-103 28 9-58 123z" fill="#d94038" stroke="#211a2a" stroke-width="7"/>
+        <path d="M431 248l50 5-14 29-43-13z" fill="#f47a24" stroke="#211a2a" stroke-width="6"/>
+        <path d="M449 278l37 18-28 10z" fill="#fff1c8" stroke="#211a2a" stroke-width="5"/>
+        <circle cx="345" cy="207" r="13" fill="#f47a24" stroke="#211a2a" stroke-width="5"/>
+        <path d="M173 190l153 77" stroke="#211a2a" stroke-width="6" opacity=".65"/>
+      </g>
+      <g transform="translate(0 718)" filter="url(#gouache)">
+        <path d="M0 133c95-47 175-54 251-25 63 24 132 9 196-23 80-41 155-17 223 8 91 34 163-38 251-35 68 2 112 37 179 40 79 4 132-45 202-25 101 29 193 17 298-38v240H0z" fill="#f4d46a" stroke="#211a2a" stroke-width="8"/>
+        <path d="M0 175c135-32 207-2 306 2 129 6 178-32 276-31 148 1 172 42 319 17 119-20 222-7 319 12 149 28 265 16 380-31v174H0z" fill="#e3bd55" opacity=".78"/>
+        <ellipse cx="201" cy="151" rx="56" ry="20" fill="#dfb94e" stroke="#211a2a" stroke-width="5"/>
+        <ellipse cx="693" cy="121" rx="46" ry="16" fill="#dfb94e" stroke="#211a2a" stroke-width="5"/>
+        <ellipse cx="1227" cy="148" rx="77" ry="25" fill="#dfb94e" stroke="#211a2a" stroke-width="5"/>
+        <ellipse cx="1456" cy="104" rx="36" ry="14" fill="#dfb94e" stroke="#211a2a" stroke-width="5"/>
+        <path d="M1040 109l55-151 20 148 55-108 35 121z" fill="#5c438a" stroke="#211a2a" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M1285 90l47-137 31 132 42-83 26 102z" fill="#8365b8" stroke="#211a2a" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M72 124l39-81 24 77 35-48 23 63z" fill="#5c438a" stroke="#211a2a" stroke-width="7" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <header class="command-header">
+    <div class="brand-lockup">
+      <div class="rocket-badge" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 39l-6 15 15-7 7 7 7-19z" fill="#fff1c8" stroke="#211a2a" stroke-width="3"/>
+          <path d="M24 39C28 18 43 9 57 8c0 15-8 30-28 36z" fill="#fff1c8" stroke="#211a2a" stroke-width="3"/>
+          <circle cx="42" cy="24" r="7" fill="#37c8c4" stroke="#211a2a" stroke-width="3"/>
+          <path d="M21 43l-8 1 5-8z" fill="#f47a24" stroke="#211a2a" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <span class="eyebrow">Mission Control: independent classroom diagnostic</span>
+        <h1>Moonshot English</h1>
+        <p class="subhead">Grade 6 / Cambridge Global English Stage 6 skills • talk, language, reading &amp; writing</p>
+      </div>
+    </div>
+    <button id="tr-toggle-btn" class="tr-toggle" type="button" onclick="toggleTurkishSupport()" aria-pressed="false">
+      <span aria-hidden="true">TR</span>
+      <span class="toggle-word" id="tr-toggle-label">Hints: OFF</span>
+      <span id="tr-indicator" class="signal-dot" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main class="mission-shell">
+    <nav class="progress-nav" aria-label="Diagnostic stages">
+      <button id="nav-stage-1" class="stage-nav is-active" type="button" onclick="switchStage(1)" aria-current="step">1. Launch Talk</button>
+      <button id="nav-stage-2" class="stage-nav" type="button" onclick="switchStage(2)">2. Language Lab</button>
+      <button id="nav-stage-3" class="stage-nav" type="button" onclick="switchStage(3)">3. Read &amp; Respond</button>
+      <button id="nav-stage-4" class="stage-nav" type="button" onclick="switchStage(4)">4. Mission Board</button>
+    </nav>
+
+    <section id="stage-1" class="stage-panel" aria-labelledby="stage-1-heading">
+      <div class="stage-intro">
+        <div>
+          <span class="stage-kicker">Speaking diagnostic</span>
+          <h2 id="stage-1-heading">Launch Talk</h2>
+          <p>Invite a sustained, purposeful response rather than a one-sentence past-tense answer. Learners explain, sequence and justify a solution for a real audience.</p>
+        </div>
+        <span class="chapter-number" aria-hidden="true">1</span>
+      </div>
+
+      <div class="two-up">
+        <div class="panel-card">
+          <h3>Mission briefing</h3>
+          <div class="callout">
+            <p>Your lunar rover stopped during a survey. Give Mission Control an 8-sentence report: what happened, what the crew was doing, how you solved the problem, and what you will do next time.</p>
+          </div>
+          <div class="language-chip-row" aria-label="Suggested language">
+            <span class="language-chip">At first, ...</span>
+            <span class="language-chip">While we were ...</span>
+            <span class="language-chip">Suddenly, ...</span>
+            <span class="language-chip">Since then, ...</span>
+            <span class="language-chip">If / Unless ...</span>
+          </div>
+          <div class="tr-hint hidden">
+            🇹🇷 Görev raporu verin: Ne oldu? Ekip ne yapıyordu? Sorunu nasıl çözdünüz? Bir dahaki sefere ne yapacaksınız? En az sekiz cümle kurun.
+          </div>
+          <ul class="mission-list">
+            <li>Use a past continuous + past simple event: “While we were mapping the crater, the signal disappeared.”</li>
+            <li>Add one present perfect sentence linked to now: “Since then, we have tested the antenna twice.”</li>
+            <li>Give a prediction or plan with <strong>if</strong> or <strong>unless</strong>.</li>
+          </ul>
+        </div>
+
+        <aside class="tracker-card" aria-label="Speaking turns tracker">
+          <span class="tracker-label">Crew reports</span>
+          <span id="turn-count" class="tracker-number">0</span>
+          <small>Record each sustained response. Listen for sequence, clarity, detail and an appropriate answer for Mission Control.</small>
+          <div class="turn-controls">
+            <button class="icon-control" type="button" onclick="changeTurns(-1)" aria-label="Remove one crew report">−</button>
+            <button class="icon-control" type="button" onclick="changeTurns(1)" aria-label="Add one crew report">+</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="stage-footer">
+        <span class="score-badge">Target: <strong>extended response</strong></span>
+        <button class="retro-button success" type="button" onclick="switchStage(2)">Enter the Language Lab →</button>
+      </div>
+    </section>
+
+    <section id="stage-2" class="stage-panel hidden" aria-labelledby="stage-2-heading">
+      <div class="stage-intro">
+        <div>
+          <span class="stage-kicker">Use of English diagnostic</span>
+          <h2 id="stage-2-heading">Language Lab</h2>
+          <p>Match each opening with the only ending that makes a logical, grammatically accurate Stage 6 mission report. Think before you launch.</p>
+        </div>
+        <div class="score-badge">Matches <strong id="match-score">0</strong> / 6</div>
+      </div>
+
+      <div class="matcher-grid">
+        <div class="match-column">
+          <p class="column-label">Transmission beginnings</p>
+          <div id="match-text-column"></div>
+        </div>
+        <div class="match-column">
+          <p class="column-label">Transmission endings</p>
+          <div id="match-target-column"></div>
+        </div>
+      </div>
+      <p id="match-status" class="status-message" aria-live="polite">Choose a beginning, then select its ending.</p>
+
+      <div class="stage-footer">
+        <button class="retro-button secondary" type="button" onclick="switchStage(1)">← Back to Talk</button>
+        <button class="retro-button success" type="button" onclick="switchStage(3)">Read the Signal →</button>
+      </div>
+    </section>
+
+    <section id="stage-3" class="stage-panel hidden" aria-labelledby="stage-3-heading">
+      <div class="stage-intro">
+        <div>
+          <span class="stage-kicker">Reading + writing diagnostic</span>
+          <h2 id="stage-3-heading">Read &amp; Respond</h2>
+          <p>Read for detail, inference, vocabulary in context and grammar meaning. Then write a short text for a clear purpose and audience.</p>
+        </div>
+        <span class="chapter-number" aria-hidden="true">3</span>
+      </div>
+
+      <article class="reading-text" aria-labelledby="reading-title">
+        <p id="reading-title"><strong>Luna Station field report.</strong> The team planned to cross the quiet basin just after sunrise. While Niko set up the rover, Aya saw grey dust on the solar panels. The team knew how to clean them, but the wind <strong>kept blowing</strong> more dust across the valley. Aya did not want to stop the trip. <strong>So, she used</strong> a spare mirror to reflect more sunlight onto the panels. With this plan, the team <strong>had enough power</strong> to send their map before dark. The captain agreed, but he told everyone to protect their helmets. The trip was slow, but the rover finally reached the end. <strong>Now, the team uses</strong> Aya’s mirror trick every time they explore the basin.</p>
+        <div class="tr-hint hidden">
+          🇹🇷 Luna İstasyonu alan raporu. Ekip, gün doğumundan hemen sonra sessiz vadiyi geçmeyi planladı. Niko aracı hazırlarken, Aya güneş panellerinin üzerinde gri toz gördü. Ekip panelleri nasıl temizleyeceğini biliyordu, ama rüzgâr vadiye sürekli daha fazla toz taşıyordu. Aya yolculuğu durdurmak istemedi. Bu yüzden, panellere daha fazla güneş ışığı yansıtmak için yedek bir ayna kullandı. Bu sayede, ekibin karanlık çökmeden haritayı gönderecek kadar gücü oldu. Kaptan kabul etti, ama herkese kasklarını korumalarını söyledi. Yolculuk yavaştı, ama araç sonunda hedefe ulaştı. Şimdi, ekip vadiyi her keşfettiğinde Aya’nın ayna numarasını kullanıyor.
+        </div>
+      </article>
+
+      <div class="question-head">
+        <h3>Signal check</h3>
+        <span id="quest-progress" class="question-progress">0 of 5 answered</span>
+      </div>
+      <div class="questions">
+        <article id="quest-q1" class="question-card">
+          <h4>1. Why did the team not stop the trip?</h4>
+          <div class="option-grid">
+            <button class="answer-option" type="button" onclick="answerQuest(1, false, this)">They found a shorter way through the basin.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(1, true, this)">Aya found a way to give the panels more power.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(1, false, this)">The wind stopped blowing dust.</button>
+          </div>
+        </article>
+        <article id="quest-q2" class="question-card">
+          <h4>2. Which words show the dust problem happened again and again?</h4>
+          <div class="option-grid">
+            <button class="answer-option" type="button" onclick="answerQuest(2, false, this)">“saw grey dust on the solar panels”</button>
+            <button class="answer-option" type="button" onclick="answerQuest(2, true, this)">“kept blowing more dust”</button>
+            <button class="answer-option" type="button" onclick="answerQuest(2, false, this)">“finally reached the end”</button>
+          </div>
+        </article>
+        <article id="quest-q3" class="question-card">
+          <h4>3. What kind of person is Aya?</h4>
+          <div class="option-grid">
+            <button class="answer-option" type="button" onclick="answerQuest(3, false, this)">She gives up when there is a problem.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(3, false, this)">She wanted the trip to take longer.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(3, true, this)">She finds clever ways to solve problems.</button>
+          </div>
+        </article>
+        <article id="quest-q4" class="question-card">
+          <h4>4. Why did the captain tell everyone to protect their helmets?</h4>
+          <div class="option-grid">
+            <button class="answer-option" type="button" onclick="answerQuest(4, true, this)">The dust could make the work unsafe.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(4, false, this)">The helmets would give the rover more power.</button>
+            <button class="answer-option" type="button" onclick="answerQuest(4, false, this)">The crew needed the helmets to see the map.</button>
+          </div>
+        </article>
+        <article id="quest-q5" class="question-card">
+          <h4>5. Which sentence shows what the team does every time now, not just on this one trip?</h4>
+          <div class="option-grid">
+            <button class="answer-option" type="button" onclick="answerQuest(5, false, this)">“While Niko set up the rover, Aya saw grey dust ...”</button>
+            <button class="answer-option" type="button" onclick="answerQuest(5, false, this)">“The trip was slow, but the rover finally reached the end ...”</button>
+            <button class="answer-option" type="button" onclick="answerQuest(5, true, this)">“Now, the team uses Aya’s mirror trick ...”</button>
+          </div>
+        </article>
+      </div>
+
+      <section class="writing-brief" aria-labelledby="writing-title">
+        <h3 id="writing-title">Final transmission</h3>
+        <p>Write a 60–80 word email from Aya to Mission Control. Explain the problem, give the solution and recommend a future action. Use paragraphs and edit before sending.</p>
+        <div class="checklist" aria-label="Writing checklist">
+          <span>Address Mission Control and use a clear purpose.</span>
+          <span>Include one past continuous + past simple sentence.</span>
+          <span>Use a present perfect sentence with “since then”.</span>
+          <span>Use <strong>if</strong> or <strong>unless</strong> to give a recommendation.</span>
+        </div>
+        <textarea id="mission-draft" class="mission-draft" aria-label="Mission Control email draft" placeholder="Dear Mission Control,&#10;&#10;..."></textarea>
+        <div class="tr-hint hidden">🇹🇷 Aya olarak Mission Control’a 60–80 kelimelik bir e-posta yazın. Sorunu ve çözümü açıklayın; gelecek için bir öneri verin. Paragraf kullanın ve gönderirken kontrol edin.</div>
+      </section>
+
+      <div class="stage-footer">
+        <button class="retro-button secondary" type="button" onclick="switchStage(2)">← Back to Language</button>
+        <button class="retro-button success" type="button" onclick="switchStage(4)">Open Mission Board →</button>
+      </div>
+    </section>
+
+    <section id="stage-4" class="stage-panel hidden" aria-labelledby="stage-4-heading">
+      <div class="stage-intro">
+        <div>
+          <span class="stage-kicker">Teacher view</span>
+          <h2 id="stage-4-heading">Mission Board</h2>
+          <p>Use the evidence below alongside listening notes and the final transmission. This is a skills-informed classroom diagnostic, not an official Cambridge assessment.</p>
+        </div>
+        <button class="retro-button danger" type="button" onclick="resetWholeLesson()">Reset mission data</button>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric">
+          <span class="metric-label">Oral reports</span>
+          <strong id="dash-turns" class="metric-value">0</strong>
+          <small>Sustained speaking turns</small>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Language lab</span>
+          <strong id="dash-matches" class="metric-value">0 / 6</strong>
+          <small>Logical grammar matches</small>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Signal check</span>
+          <strong id="dash-quest" class="metric-value">0 / 5</strong>
+          <small>Detail, inference &amp; grammar</small>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Writing task</span>
+          <strong class="metric-value">60–80</strong>
+          <small>Words, audience, paragraphing &amp; edit</small>
+        </div>
+      </div>
+
+      <section class="teacher-log" aria-labelledby="teacher-log-title">
+        <h3 id="teacher-log-title">Crew observation log</h3>
+        <p>Capture an individual next step after the conversation, reading and writing task. Records remain only in this browser session.</p>
+        <div class="form-grid">
+          <input id="student-name-input" class="form-control" type="text" maxlength="60" placeholder="Learner name">
+          <select id="student-speaking-select" class="form-control" aria-label="Speaking observation">
+            <option value="Talk: sustained &amp; clear">Talk: sustained &amp; clear</option>
+            <option value="Talk: developing sequence">Talk: developing sequence</option>
+            <option value="Talk: needs language frame">Talk: needs language frame</option>
+          </select>
+          <select id="student-reading-select" class="form-control" aria-label="Reading observation">
+            <option value="Read: inference &amp; evidence">Read: inference &amp; evidence</option>
+            <option value="Read: detail retrieval">Read: detail retrieval</option>
+            <option value="Read: needs vocabulary support">Read: needs vocabulary support</option>
+          </select>
+          <select id="student-writing-select" class="form-control" aria-label="Writing observation">
+            <option value="Write: purpose &amp; structure">Write: purpose &amp; structure</option>
+            <option value="Write: grammar emerging">Write: grammar emerging</option>
+            <option value="Write: needs planning/editing">Write: needs planning/editing</option>
+          </select>
+          <button class="log-button" type="button" onclick="addStudentObservation()">+ Log record</button>
+        </div>
+        <div id="observation-list" class="observation-list" aria-live="polite">
+          <p class="empty-log">No crew observations logged yet.</p>
+        </div>
+      </section>
+
+      <div class="stage-footer">
+        <button class="retro-button secondary" type="button" onclick="switchStage(3)">← Back to Read &amp; Respond</button>
+        <p class="dashboard-note">Focus: sustained spoken response • grammar in context • inference • purposeful short writing</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    Original classroom content mapped to Grade 6 / Cambridge Global English Stage 6-style skills. Cambridge is not affiliated with or responsible for this independent diagnostic.
+  </footer>
+
+  <script>
+    let currentStage = 1;
+    let isTurkishActive = false;
+    let studentTurns = 0;
+    let matchedPairs = 0;
+    let selectedTextCard = null;
+    let questAnswers = { 1: null, 2: null, 3: null, 4: null, 5: null };
+    let studentObservations = [];
+
+    const matchData = [
+      {
+        id: 1,
+        text: "While Noor was adjusting the solar panels, ...",
+        tr: "Noor güneş panellerini ayarlarken, ...",
+        target: "... the warning light flashed.",
+        trTarget: "... uyarı ışığı yanıp söndü."
+      },
+      {
+        id: 2,
+        text: "The captain has already checked the fuel gauges, ...",
+        tr: "Kaptan yakıt göstergelerini çoktan kontrol etti, ...",
+        target: "... so the launch can begin on time.",
+        trTarget: "... bu yüzden fırlatma zamanında başlayabilir."
+      },
+      {
+        id: 3,
+        text: "If the crew finds frozen water, ...",
+        tr: "Ekip donmuş su bulursa, ...",
+        target: "... they will store it for the base.",
+        trTarget: "... onu üs için saklayacaklar."
+      },
+      {
+        id: 4,
+        text: "Unless the storm ends soon, ...",
+        tr: "Fırtına yakında bitmezse, ...",
+        target: "... the rover will remain inside.",
+        trTarget: "... araç içeride kalacak."
+      },
+      {
+        id: 5,
+        text: "The engineer worked out the fault, ...",
+        tr: "Mühendis arızayı çözdü, ...",
+        target: "... although the instructions were unclear.",
+        trTarget: "... talimatlar açık olmasa da."
+      },
+      {
+        id: 6,
+        text: "Astronauts must secure every tool ...",
+        tr: "Astronotlar her aleti sabitlemelidir ...",
+        target: "... because it can float away in low gravity.",
+        trTarget: "... çünkü düşük yer çekiminde uzaklaşabilir."
+      }
+    ];
+
+    function setStatus(message) {
+      const status = document.getElementById("match-status");
+      if (status) status.textContent = message;
+    }
+
+    function switchStage(stageNum) {
+      currentStage = stageNum;
+      for (let i = 1; i <= 4; i += 1) {
+        const stage = document.getElementById("stage-" + i);
+        const nav = document.getElementById("nav-stage-" + i);
+        const isActive = i === stageNum;
+        if (stage) stage.classList.toggle("hidden", !isActive);
+        if (nav) {
+          nav.classList.toggle("is-active", isActive);
+          if (isActive) nav.setAttribute("aria-current", "step");
+          else nav.removeAttribute("aria-current");
+        }
+      }
+      if (stageNum === 4) updateDashboardStats();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function toggleTurkishSupport() {
+      isTurkishActive = !isTurkishActive;
+      const toggle = document.getElementById("tr-toggle-btn");
+      const label = document.getElementById("tr-toggle-label");
+      const hints = document.querySelectorAll(".tr-hint");
+      hints.forEach(function(hint) {
+        hint.classList.toggle("hidden", !isTurkishActive);
+      });
+      if (toggle) {
+        toggle.classList.toggle("is-on", isTurkishActive);
+        toggle.setAttribute("aria-pressed", String(isTurkishActive));
+      }
+      if (label) label.textContent = isTurkishActive ? "Hints: ON" : "Hints: OFF";
+    }
+
+    function changeTurns(delta) {
+      studentTurns = Math.max(0, studentTurns + delta);
+      document.getElementById("turn-count").textContent = studentTurns;
+    }
+
+    function makeHint(text) {
+      const hint = document.createElement("span");
+      hint.className = "tr-hint" + (isTurkishActive ? "" : " hidden");
+      hint.textContent = "🇹🇷 " + text;
+      return hint;
+    }
+
+    function initStage2Matching() {
+      const textCol = document.getElementById("match-text-column");
+      const targetCol = document.getElementById("match-target-column");
+      if (!textCol || !targetCol) return;
+
+      selectedTextCard = null;
+      textCol.textContent = "";
+      targetCol.textContent = "";
+      const shuffledTargets = matchData.slice().sort(function() { return Math.random() - 0.5; });
+
+      matchData.forEach(function(item) {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.id = "match-text-" + item.id;
+        card.className = "match-card source-card";
+        card.addEventListener("click", function() { selectTextCard(item.id); });
+        const main = document.createElement("span");
+        main.className = "card-main";
+        main.textContent = item.text;
+        card.appendChild(main);
+        card.appendChild(makeHint(item.tr));
+        textCol.appendChild(card);
+      });
+
+      shuffledTargets.forEach(function(item) {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.id = "match-target-" + item.id;
+        card.className = "match-card target-card";
+        card.addEventListener("click", function() { selectTargetCard(item.id); });
+        const main = document.createElement("span");
+        main.className = "card-main";
+        main.textContent = item.target;
+        card.appendChild(main);
+        card.appendChild(makeHint(item.trTarget));
+        targetCol.appendChild(card);
+      });
+      setStatus("Choose a beginning, then select its ending.");
+    }
+
+    function selectTextCard(id) {
+      const selected = document.getElementById("match-text-" + id);
+      if (!selected || selected.disabled) return;
+      document.querySelectorAll(".source-card:not(:disabled)").forEach(function(card) {
+        card.classList.remove("is-selected");
+      });
+      selectedTextCard = id;
+      selected.classList.add("is-selected");
+      setStatus("Transmission beginning selected. Now find its ending.");
+    }
+
+    function selectTargetCard(targetId) {
+      if (!selectedTextCard) {
+        setStatus("Select a transmission beginning first.");
+        return;
+      }
+      const textEl = document.getElementById("match-text-" + selectedTextCard);
+      const targetEl = document.getElementById("match-target-" + targetId);
+      if (!textEl || !targetEl || targetEl.disabled) return;
+
+      if (selectedTextCard === targetId) {
+        matchedPairs += 1;
+        document.getElementById("match-score").textContent = matchedPairs;
+        textEl.disabled = true;
+        targetEl.disabled = true;
+        textEl.classList.remove("is-selected");
+        textEl.classList.add("is-matched");
+        targetEl.classList.add("is-matched");
+        selectedTextCard = null;
+        setStatus(matchedPairs === 6 ? "All launch codes matched. Excellent work!" : "Correct. Choose another beginning.");
+      } else {
+        targetEl.classList.add("is-incorrect");
+        setStatus("That pairing does not work. Read the grammar clue again.");
+        window.setTimeout(function() { targetEl.classList.remove("is-incorrect"); }, 450);
+      }
+    }
+
+    function answerQuest(qNum, isCorrect, btnEl) {
+      if (questAnswers[qNum] !== null) return;
+      const parent = document.getElementById("quest-q" + qNum);
+      if (!parent) return;
+      const buttons = parent.querySelectorAll("button");
+      buttons.forEach(function(button) {
+        button.disabled = true;
+        button.classList.add("is-disabled");
+      });
+      questAnswers[qNum] = isCorrect;
+      btnEl.classList.remove("is-disabled");
+      btnEl.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+      updateQuestProgress();
+    }
+
+    function updateQuestProgress() {
+      const answered = Object.values(questAnswers).filter(function(answer) { return answer !== null; }).length;
+      const progress = document.getElementById("quest-progress");
+      if (progress) progress.textContent = answered + " of 5 answered";
+    }
+
+    function updateDashboardStats() {
+      document.getElementById("dash-turns").textContent = studentTurns;
+      document.getElementById("dash-matches").textContent = matchedPairs + " / 6";
+      const questScore = Object.values(questAnswers).filter(Boolean).length;
+      document.getElementById("dash-quest").textContent = questScore + " / 5";
+    }
+
+    function addStudentObservation() {
+      const nameInput = document.getElementById("student-name-input");
+      const speakSelect = document.getElementById("student-speaking-select");
+      const readSelect = document.getElementById("student-reading-select");
+      const writeSelect = document.getElementById("student-writing-select");
+      const name = nameInput.value.trim();
+      if (!name) {
+        nameInput.focus();
+        return;
+      }
+      studentObservations.push({
+        name: name,
+        speaking: speakSelect.value,
+        reading: readSelect.value,
+        writing: writeSelect.value
+      });
+      nameInput.value = "";
+      renderObservationList();
+    }
+
+    function renderObservationList() {
+      const container = document.getElementById("observation-list");
+      if (!container) return;
+      container.textContent = "";
+      if (studentObservations.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty-log";
+        empty.textContent = "No crew observations logged yet.";
+        container.appendChild(empty);
+        return;
+      }
+      studentObservations.forEach(function(record) {
+        const row = document.createElement("div");
+        row.className = "student-record";
+        const name = document.createElement("span");
+        name.className = "student-name";
+        name.textContent = record.name;
+        const tags = document.createElement("div");
+        tags.className = "record-tags";
+        [record.speaking, record.reading, record.writing].forEach(function(label) {
+          const tag = document.createElement("span");
+          tag.className = "record-tag";
+          tag.textContent = label;
+          tags.appendChild(tag);
+        });
+        row.appendChild(name);
+        row.appendChild(tags);
+        container.appendChild(row);
+      });
+    }
+
+    function resetWholeLesson() {
+      studentTurns = 0;
+      matchedPairs = 0;
+      selectedTextCard = null;
+      questAnswers = { 1: null, 2: null, 3: null, 4: null, 5: null };
+      studentObservations = [];
+      document.getElementById("turn-count").textContent = "0";
+      document.getElementById("match-score").textContent = "0";
+      document.getElementById("mission-draft").value = "";
+      document.querySelectorAll(".question-card").forEach(function(card) {
+        card.querySelectorAll("button").forEach(function(button) {
+          button.disabled = false;
+          button.classList.remove("is-disabled", "is-correct", "is-incorrect");
+        });
+      });
+      updateQuestProgress();
+      initStage2Matching();
+      renderObservationList();
+      updateDashboardStats();
+      switchStage(1);
+    }
+
+    window.addEventListener("load", function() {
+      initStage2Matching();
+      renderObservationList();
+      updateQuestProgress();
+    });
+  </script>
+</body>
+</html>
